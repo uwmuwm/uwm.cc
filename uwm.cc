@@ -118,15 +118,15 @@ local function showWatermark()
         local screenGui = Instance.new("ScreenGui", game.CoreGui)
         local frame = Instance.new("Frame", screenGui)
         frame.Size = UDim2.new(0, 400, 0, 150)  -- Increased size for better visibility
-        frame.Position = UDim2.new(0.5, -200, 0.5, -75)  -- Centered on screen
+        frame.Position = UDim2.new(0, 10, 0, 10)  -- Positioned slightly away from the top-left corner
         frame.BackgroundTransparency = 1
-        frame.AnchorPoint = Vector2.new(0.5, 0.5)
+        frame.AnchorPoint = Vector2.new(0, 0)
         frame.ClipsDescendants = true
         frame.ZIndex = 2
 
         local title = Instance.new("TextLabel", frame)
         title.Size = UDim2.new(1, 0, 0.6, 0)
-        title.Position = UDim2.new(0, 0, 0.1, 0)
+        title.Position = UDim2.new(0, 0, 0, 0)
         title.BackgroundTransparency = 1
         title.TextColor3 = Color3.fromRGB(0, 0 ,0)
         title.Text = "^_<3"
@@ -149,7 +149,7 @@ local function showWatermark()
         frame.BackgroundTransparency = 1
         frame:TweenSizeAndPosition(
             UDim2.new(0, 400, 0, 150),
-            UDim2.new(0.5, -200, 0.5, -75),
+            UDim2.new(0, 10, 0, 10),
             Enum.EasingDirection.Out,
             Enum.EasingStyle.Quad,
             0.5,
@@ -171,7 +171,7 @@ local function showWatermark()
         end)
         
         if getgenv().uwmuwmuwmuwm.Watermark.Sound then
-            local sound = Instance.new("Sound", SoundService)
+            local sound = Instance.new("Sound", game:GetService("SoundService"))
             sound.SoundId = "rbxassetid://9119802009"
             sound:Play()
             delay(3, function()
@@ -180,7 +180,7 @@ local function showWatermark()
         end
 
         if getgenv().uwmuwmuwmuwm.Watermark.Music then
-            local music = Instance.new("Sound", SoundService)
+            local music = Instance.new("Sound", game:GetService("SoundService"))
             music.SoundId = "rbxassetid://9045766377"
             music.Looped = true
             music:Play()
@@ -188,16 +188,6 @@ local function showWatermark()
     end
 end
 
-
-
-local function Death(Plr)
-    if Plr.Character and Plr.Character:FindFirstChild("BodyEffects") then
-        local bodyEffects = Plr.Character.BodyEffects
-        local ko = bodyEffects:FindFirstChild("K.O") or bodyEffects:FindFirstChild("KO")
-        return ko and ko.Value
-    end
-    return false
-end
 
 
 local function Grabbed(Plr)
