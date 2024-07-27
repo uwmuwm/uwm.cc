@@ -111,6 +111,8 @@ local function sendNotification(title, text, icon)
 end
 
 
+
+
 local function showWatermark()
     if getgenv().uwmuwmuwmuwm.Watermark.Enabled then
         local screenGui = Instance.new("ScreenGui", game.CoreGui)
@@ -126,41 +128,23 @@ local function showWatermark()
         title.Size = UDim2.new(1, 0, 0.6, 0)
         title.Position = UDim2.new(0, 0, 0.1, 0)
         title.BackgroundTransparency = 1
-        title.TextColor3 = Color3.fromRGB(255, 20 ,147)
-        title.Text = ""
+        title.TextColor3 = Color3.fromRGB(0, 0 ,0)
+        title.Text = "^_<3"
         title.Font = Enum.Font.GothamBlack
         title.TextScaled = true
         title.TextWrapped = true
         title.ZIndex = 3
 
-        local frame = script.Parent -- Assuming 'frame' is already defined as the parent of subtitle
-
-        local subtitleText = "uwm.cc"
-        local colors = {
-            Color3.fromRGB(255, 255, 255), -- white for 'u'
-            Color3.fromRGB(0, 0, 0),       -- black for 'w'
-            Color3.fromRGB(255, 255, 255), -- white for 'm'
-            Color3.fromRGB(0, 0, 0),       -- black for '.'
-            Color3.fromRGB(255, 255, 255), -- white for 'c'
-            Color3.fromRGB(0, 0, 0)        -- black for 'c'
-        }
-        
-        local totalCharacters = #subtitleText
-        local characterWidth = 1 / totalCharacters
-        
-        for i = 1, totalCharacters do
-            local charLabel = Instance.new("TextLabel", frame)
-            charLabel.Size = UDim2.new(characterWidth, 0, 0.3, 0)
-            charLabel.Position = UDim2.new((i - 1) * characterWidth, 0, 0.7, 0)
-            charLabel.BackgroundTransparency = 1
-            charLabel.TextColor3 = colors[i]
-            charLabel.Text = subtitleText:sub(i, i)
-            charLabel.Font = Enum.Font.Gotham
-            charLabel.TextScaled = true
-            charLabel.TextWrapped = true
-            charLabel.ZIndex = 3
-        end
-        
+        local subtitle = Instance.new("TextLabel", frame)
+        subtitle.Size = UDim2.new(1, 0, 0.3, 0)
+        subtitle.Position = UDim2.new(0, 0, 0.7, 0)
+        subtitle.BackgroundTransparency = 1
+        subtitle.TextColor3 = Color3.fromRGB(255, 255 ,255)
+        subtitle.Text = "uwm.cc"
+        subtitle.Font = Enum.Font.Gotham
+        subtitle.TextScaled = true
+        subtitle.TextWrapped = true
+        subtitle.ZIndex = 3
 
         frame.BackgroundTransparency = 1
         frame:TweenSizeAndPosition(
@@ -203,6 +187,7 @@ local function showWatermark()
         end
     end
 end
+
 
 
 local function Death(Plr)
